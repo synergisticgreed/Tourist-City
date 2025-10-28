@@ -43,10 +43,10 @@ const CityCard = ({ city, onClick, index }) => {
       onClick={onClick}
       className={`group cursor-pointer bg-black overflow-hidden transition-all duration-700 transform ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
+      } mb-8 mx-4`} // Added spacing here
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="relative h-96 overflow-hidden">
+      <div className="relative h-96 overflow-hidden rounded-2xl"> {/* Added subtle rounding */}
         <img 
           src={`https://images.unsplash.com/photo-${city.imageId}?w=800&h=800&fit=crop&q=80`}
           alt={city.name}
@@ -78,9 +78,13 @@ const CityCard = ({ city, onClick, index }) => {
 
 const TouristPlaceCard = ({ place, index }) => {
   const [ref, isVisible] = useScrollAnimation();
-  
+
   const openInGoogleMaps = () => {
-    window.open(`https://www.google.com/maps/search/?api=1&query=${place.lat},${place.lng}`, '_blank');
+    if (place.mapLink) {
+      window.open(place.mapLink, '_blank', 'noopener,noreferrer');
+    } else {
+      alert('Map link not available for this place.');
+    }
   };
 
   return (
@@ -98,15 +102,16 @@ const TouristPlaceCard = ({ place, index }) => {
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
         />
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500"></div>
-        
+
         {/* Sharp corner rating badge */}
-        <div className="absolute top-0 right-0">
-          <div className="bg-black text-white px-4 py-3 flex items-center gap-2">
-            <Star className="fill-yellow-400 text-yellow-400" size={18} />
-            <span className="font-black text-lg">{place.rating}</span>
+        {place.rating && (
+          <div className="absolute top-0 right-0">
+            <div className="bg-black text-white px-4 py-3 flex items-center gap-2">
+              <span className="font-black text-lg">{place.rating}★</span>
+            </div>
+            <div className="w-0 h-0 border-l-[20px] border-l-transparent border-t-[20px] border-t-black absolute -bottom-[20px] right-0"></div>
           </div>
-          <div className="w-0 h-0 border-l-[20px] border-l-transparent border-t-[20px] border-t-black absolute -bottom-[20px] right-0"></div>
-        </div>
+        )}
       </div>
       
       <div className="p-6 bg-white">
@@ -114,26 +119,11 @@ const TouristPlaceCard = ({ place, index }) => {
           <h3 className="text-2xl font-black text-gray-900 mb-2 tracking-tight uppercase">{place.name}</h3>
           <p className="text-gray-600 text-sm leading-relaxed">{place.description}</p>
         </div>
-        
-        <div className="flex items-center gap-4 mb-6 text-sm">
-          <div className="flex items-center gap-2 text-gray-700">
-            <div className="w-8 h-8 bg-black flex items-center justify-center">
-              <Clock size={16} className="text-yellow-400" />
-            </div>
-            <span className="font-bold">{place.time}</span>
-          </div>
-          <div className="h-4 w-px bg-gray-300"></div>
-          <div className="flex items-center gap-2 text-gray-700">
-            <Camera size={16} className="text-gray-400" />
-            <span className="font-bold text-xs uppercase tracking-wider">Must See</span>
-          </div>
-        </div>
-        
+
         <button
           onClick={openInGoogleMaps}
-          className="w-full bg-black hover:bg-gray-900 text-white font-black py-4 px-6 flex items-center justify-center gap-3 transition-all duration-300 group/btn uppercase tracking-widest text-sm"
+          className="w-full bg-black hover:bg-gray-900 text-white font-black py-4 px-6 flex items-center justify-center gap-3 transition-all duration-300 uppercase tracking-widest text-sm"
         >
-          <Navigation size={20} className="group-hover/btn:rotate-45 transition-transform duration-300" />
           View on Map
         </button>
       </div>

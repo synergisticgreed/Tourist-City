@@ -1,287 +1,162 @@
-// City data with Picsum photos (reliable free image service)
 const citiesData = [
   {
-    id: 'paris',
-    name: 'Paris',
-    country: 'France',
-    lat: 48.8566,
-    lng: 2.3522,
-    imageId: '1502602898657-3e91760cbb34',
-    description: 'The City of Light',
+    name: 'Lucknow',
+    country: 'Uttar Pradesh',
+    description: 'The City of Nawabs, known for its culture, cuisine, and heritage architecture.',
+    imageId: '1572188863110-3dffbe6b5f79',
+    mapLink: 'https://www.google.com/maps/place/Lucknow',
     touristPlaces: [
-      { 
-        name: 'Eiffel Tower', 
-        lat: 48.8584, 
-        lng: 2.2945, 
-        rating: 4.7, 
-        time: '2-3 hours',
-        imageId: '1511739001486-6bfe10ce785f',
-        description: 'Iconic iron lattice tower and symbol of Paris'
+      {
+        name: 'Bara Imambara',
+        imageId: '1603808033198-63f7f8c93d65',
+        description: 'Historical monument built by Asaf-ud-Daula in 1784.',
+        mapLink: 'https://www.google.com/maps/place/Bara+Imambara'
       },
-      { 
-        name: 'Louvre Museum', 
-        lat: 48.8606, 
-        lng: 2.3376, 
-        rating: 4.8, 
-        time: '3-4 hours',
-        imageId: '1499856871958-5b9627545d1a',
-        description: 'World\'s largest art museum'
-      },
-      { 
-        name: 'Notre-Dame', 
-        lat: 48.8530, 
-        lng: 2.3499, 
-        rating: 4.6, 
-        time: '1-2 hours',
-        imageId: '1431274172761-fca41d930114',
-        description: 'Medieval Gothic cathedral'
-      },
-      { 
-        name: 'Arc de Triomphe', 
-        lat: 48.8738, 
-        lng: 2.2950, 
-        rating: 4.7, 
-        time: '1 hour',
-        imageId: '1549375481-593dc54c2e8f',
-        description: 'Monumental arch of triumph'
+      {
+        name: 'Rumi Darwaza',
+        imageId: '1622372181938-7cf056dcfca9',
+        description: 'Massive gateway built in the 18th century, symbol of Lucknow.',
+        mapLink: 'https://www.google.com/maps/place/Rumi+Darwaza'
       }
     ]
   },
   {
-    id: 'tokyo',
-    name: 'Tokyo',
-    country: 'Japan',
-    lat: 35.6762,
-    lng: 139.6503,
-    imageId: '1540959733332-eab4deabeeaf',
-    description: 'Where Tradition Meets Future',
+    name: 'Delhi',
+    country: 'Delhi',
+    description: 'The capital city of India',
     touristPlaces: [
-      { 
-        name: 'Senso-ji Temple', 
-        lat: 35.7148, 
-        lng: 139.7967, 
-        rating: 4.6, 
-        time: '1-2 hours',
-        imageId: '1528360983277-13d401cdc186',
-        description: 'Ancient Buddhist temple'
+      {
+        name: 'Red Fort',
+        imageId: '1623319644021-9e851b5ac5ff',
+        description: 'Historic fort built by Mughal Emperor Shah Jahan.'
       },
-      { 
-        name: 'Tokyo Skytree', 
-        lat: 35.7101, 
-        lng: 139.8107, 
-        rating: 4.5, 
-        time: '2-3 hours',
-        imageId: '1536098561742-ca998e48cbcc',
-        description: 'Tallest structure in Japan'
+      {
+        name: 'India Gate',
+        imageId: '1612976022294-7b3e80f1f6a0',
+        description: 'War memorial dedicated to soldiers of the Indian Army.'
       },
-      { 
-        name: 'Shibuya Crossing', 
-        lat: 35.6595, 
-        lng: 139.7004, 
-        rating: 4.5, 
-        time: '30 mins',
-        imageId: '1542051841857-5f90071e7989',
-        description: 'World\'s busiest crossing'
-      },
-      { 
-        name: 'Tokyo Tower', 
-        lat: 35.6586, 
-        lng: 139.7454, 
-        rating: 4.4, 
-        time: '1-2 hours',
-        imageId: '1513407030348-c983a97b98d8',
-        description: 'Iconic red communications tower'
-      }
     ]
   },
   {
-    id: 'newyork',
-    name: 'New York',
-    country: 'USA',
-    lat: 40.7128,
-    lng: -74.0060,
-    imageId: '1496442226666-8d4d0e62e6e9',
-    description: 'The City That Never Sleeps',
+    name: 'Mumbai',
+    country: 'Maharashtra',
+    description: 'The City of Dreams',
     touristPlaces: [
-      { 
-        name: 'Statue of Liberty', 
-        lat: 40.6892, 
-        lng: -74.0445, 
-        rating: 4.7, 
-        time: '3-4 hours',
-        imageId: '1508591090116-7a5a1d2b38c0',
-        description: 'Symbol of freedom'
+      {
+        name: 'Gateway of India',
+        imageId: '1614086378883-cd20c0b34a8f',
+        description: 'Monument overlooking the Arabian Sea, built during British rule.'
       },
-      { 
-        name: 'Central Park', 
-        lat: 40.7829, 
-        lng: -73.9654, 
-        rating: 4.8, 
-        time: '2-3 hours',
-        imageId: '1568515387631-8b650bbcdb90',
-        description: 'Urban oasis in Manhattan'
+      {
+        name: 'Marine Drive',
+        imageId: '1562329261-95b04cda3a9c',
+        description: 'Beautiful seaside promenade known for its sunset views.'
       },
-      { 
-        name: 'Empire State Building', 
-        lat: 40.7484, 
-        lng: -73.9857, 
-        rating: 4.7, 
-        time: '2 hours',
-        imageId: '1546436836-07a91091f160',
-        description: 'Art Deco masterpiece'
-      },
-      { 
-        name: 'Times Square', 
-        lat: 40.7580, 
-        lng: -73.9855, 
-        rating: 4.6, 
-        time: '1 hour',
-        imageId: '1560260170-957a9a6e0a82',
-        description: 'Bright lights, big city'
-      }
     ]
   },
   {
-    id: 'london',
-    name: 'London',
-    country: 'UK',
-    lat: 51.5074,
-    lng: -0.1278,
-    imageId: '1513635269975-59663e0ac1ad',
-    description: 'Royal Heritage & Modern Culture',
+    name: 'Jaipur',
+    country: 'Rajasthan',
+    description: 'The Pink City',
     touristPlaces: [
-      { 
-        name: 'Big Ben', 
-        lat: 51.5007, 
-        lng: -0.1246, 
-        rating: 4.7, 
-        time: '30 mins',
-        imageId: '1543832923-44667a44c804',
-        description: 'Iconic clock tower'
+      {
+        name: 'Hawa Mahal',
+        imageId: '1589020507233-816a96c85895',
+        description: 'Palace of Winds known for its intricate latticework windows.'
       },
-      { 
-        name: 'Tower of London', 
-        lat: 51.5081, 
-        lng: -0.0759, 
-        rating: 4.6, 
-        time: '2-3 hours',
-        imageId: '1529655683826-aba9b3e77383',
-        description: 'Historic royal castle'
+      {
+        name: 'Amber Fort',
+        imageId: '1576740613922-05b8e2d3e970',
+        description: 'Majestic fort overlooking Maota Lake, blending Mughal and Rajput styles.'
       },
-      { 
-        name: 'London Eye', 
-        lat: 51.5033, 
-        lng: -0.1195, 
-        rating: 4.5, 
-        time: '1 hour',
-        imageId: '1486299267070-83823f5448dd',
-        description: 'Giant observation wheel'
-      },
-      { 
-        name: 'Buckingham Palace', 
-        lat: 51.5014, 
-        lng: -0.1419, 
-        rating: 4.5, 
-        time: '1-2 hours',
-        imageId: '1578070181910-f1e514afdd08',
-        description: 'Royal residence'
-      }
     ]
   },
   {
-    id: 'dubai',
-    name: 'Dubai',
-    country: 'UAE',
-    lat: 25.2048,
-    lng: 55.2708,
-    imageId: '1512453979798-5ea266f8880c',
-    description: 'Luxury in the Desert',
+    name: 'Agra',
+    country: 'Uttar Pradesh',
+    description: 'City of the Taj',
     touristPlaces: [
-      { 
-        name: 'Burj Khalifa', 
-        lat: 25.1972, 
-        lng: 55.2744, 
-        rating: 4.7, 
-        time: '2-3 hours',
-        imageId: '1582672060674-bc2bd808a8b5',
-        description: 'World\'s tallest building'
+      {
+        name: 'Taj Mahal',
+        imageId: '1583182330541-974a56c1f9b5',
+        description: 'World-famous marble mausoleum built by Shah Jahan.'
       },
-      { 
-        name: 'Palm Jumeirah', 
-        lat: 25.1124, 
-        lng: 55.1390, 
-        rating: 4.6, 
-        time: '2-3 hours',
-        imageId: '1518684079-3c830dcef090',
-        description: 'Artificial palm island'
+      {
+        name: 'Agra Fort',
+        imageId: '1583394836353-dc1dfb5113a6',
+        description: 'UNESCO World Heritage site that served as a royal residence.'
       },
-      { 
-        name: 'Dubai Marina', 
-        lat: 25.0805, 
-        lng: 55.1403, 
-        rating: 4.6, 
-        time: '2 hours',
-        imageId: '1566073771259-6a8506099945',
-        description: 'Stunning waterfront'
-      },
-      { 
-        name: 'Dubai Mall', 
-        lat: 25.1975, 
-        lng: 55.2796, 
-        rating: 4.6, 
-        time: '3-4 hours',
-        imageId: '1546412414-e1885259563a',
-        description: 'Shopping paradise'
-      }
     ]
   },
   {
-    id: 'rome',
-    name: 'Rome',
-    country: 'Italy',
-    lat: 41.9028,
-    lng: 12.4964,
-    imageId: '1552832230-c0197dd311b5',
-    description: 'The Eternal City',
+    name: 'Kolkata',
+    country: 'West Bengal',
+    description: 'The City of Joy',
     touristPlaces: [
-      { 
-        name: 'Colosseum', 
-        lat: 41.8902, 
-        lng: 12.4922, 
-        rating: 4.7, 
-        time: '2-3 hours',
-        imageId: '1552832230-c0197dd311b5',
-        description: 'Ancient gladiator arena'
+      {
+        name: 'Victoria Memorial',
+        imageId: '1621072991343-cc79d846c4da',
+        description: 'Marble museum and gardens dedicated to Queen Victoria.'
       },
-      { 
-        name: 'Trevi Fountain', 
-        lat: 41.9009, 
-        lng: 12.4833, 
-        rating: 4.7, 
-        time: '30 mins',
-        imageId: '1531572753322-ad063cecc140',
-        description: 'Baroque masterpiece'
+      {
+        name: 'Howrah Bridge',
+        imageId: '1593957375318-3d4b6fdf16b4',
+        description: 'Cantilever bridge spanning the Hooghly River, an engineering marvel.'
       },
-      { 
-        name: 'Vatican Museums', 
-        lat: 41.9065, 
-        lng: 12.4536, 
-        rating: 4.7, 
-        time: '3-4 hours',
-        imageId: '1549813069-f95e44d7f498',
-        description: 'World-class art collection'
-      },
-      { 
-        name: 'Pantheon', 
-        lat: 41.8986, 
-        lng: 12.4768, 
-        rating: 4.7, 
-        time: '1 hour',
-        imageId: '1548585744-4afb9fd5e23c',
-        description: 'Ancient Roman temple'
-      }
     ]
-  }
+  },
+  {
+    name: 'Chennai',
+    country: 'Tamil Nadu',
+    description: 'The Gateway to South India',
+    touristPlaces: [
+      {
+        name: 'Marina Beach',
+        imageId: '1615801554322-0a42bdf8b43f',
+        description: 'India’s longest natural urban beach, known for its sunrise view.'
+      },
+      {
+        name: 'Kapaleeshwarar Temple',
+        imageId: '1594901661493-6b5a9c2a6a56',
+        description: 'Ancient temple dedicated to Lord Shiva, known for its Dravidian architecture.'
+      },
+    ]
+  },
+  {
+    name: 'Hyderabad',
+    country: 'Telangana',
+    description: 'The City of Pearls',
+    touristPlaces: [
+      {
+        name: 'Charminar',
+        imageId: '1581107491470-dc1d0a3f9a83',
+        description: 'Historic mosque and monument built in 1591 by Muhammad Quli Qutb Shah.'
+      },
+      {
+        name: 'Golconda Fort',
+        imageId: '1563540248060-32db3cc1cc59',
+        description: 'Massive fort known for its acoustics and panoramic views of the city.'
+      },
+    ]
+  },
+  {
+    name: 'Bengaluru',
+    country: 'Karnataka',
+    description: 'The Silicon Valley of India',
+    touristPlaces: [
+      {
+        name: 'Lalbagh Botanical Garden',
+        imageId: '1590671789992-50a2b7aa2af2',
+        description: 'Famous for its glasshouse and diverse plant species.'
+      },
+      {
+        name: 'Bangalore Palace',
+        imageId: '1614248883514-7bda2299d4a3',
+        description: 'Palace inspired by England’s Windsor Castle, known for its royal architecture.'
+      },
+    ]
+  },
 ];
 
-export default citiesData;
+
+export default citiesData
